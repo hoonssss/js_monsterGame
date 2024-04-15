@@ -39,9 +39,19 @@ function writeLog(ev, val, monsterHealth) {
     finalMonsterHealth: currentMonsterHealth,
     finalPlayerHealth: playerHealthBar
   }
+
+  // switch (ev){
+  //   case LOG_EVENT_PLAYER_STRONG_ATTACK:
+  //     logEntry.target = "MONSTER"
+  //     break;
+  //   case LOG_EVENT_MONSTER_ATTACK:
+  //     logEntry.target = "PLAYER"
+  //     break;
+  //   default:
+  //     logEntry.target = "default"
+  //       --
+
   if (ev === LOG_EVENT_PLAYER_STRONG_ATTACK) {
-    logEntry.target = "MONSTER";
-  } else if (ev === LOG_EVENT_PLAYER_STRONG_ATTACK) {
     logEntry.target = "MONSTER";
   } else if (ev === LOG_EVENT_MONSTER_ATTACK) {
     logEntry.target = "PLAYER";
@@ -143,6 +153,9 @@ function healPlayerHandler() {
 }
 
 function printLogHandler() {
+  for (let i = 0; i < battleLog.length; i++) {
+    console.log("-----");
+  }
   console.log(battleLog);
 }
 
